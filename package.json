@@ -4,8 +4,8 @@
   "description": "Complete e-commerce API built with Express.js - Migrated from Medusa.js",
   "main": "dist/server.js",
   "scripts": {
-    "build": "tsc --project tsconfig.production.json",
-    "build:production": "npm run clean && tsc --project tsconfig.production.json",
+    "build": "tsc",
+    "build:production": "npm run clean && tsc",
     "start": "node dist/server.js",
     "dev": "tsx watch express-src/server.ts",
     "migrate": "tsx express-src/database/migrate.ts",
