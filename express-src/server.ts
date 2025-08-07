@@ -83,16 +83,23 @@ app.use('/uploads', express.static('uploads'));
 app.use(notFoundHandler);
 app.use(errorHandler);
 
+// Store server instance for graceful shutdown
+let serverInstance: any;
+
 // Graceful shutdown
 const gracefulShutdown = (signal: string) => {
   logger.info(`Received ${signal}. Starting graceful shutdown...`);
   
-  server.close(() => {
-    logger.info('HTTP server closed.');
-    
-    // Close database connections
+  if (serverInstance) {
+    serverInstance.close(() => {
+      logger.info('HTTP server closed.');
+      
+      // Close database connections
+      process.exit(0);
+    });
+  } else {
     process.exit(0);
-  });
+  }
   
   // Force shutdown after 30 seconds
   setTimeout(() => {
@@ -135,6 +142,9 @@ const startServer = async () => {
       logger.info(`🗄️  Database: ${config.database.host}:${config.database.port}`);
     });
 
+    // Store server instance for graceful shutdown
+    serverInstance = server;
+
     return server;
   } catch (error) {
     logger.error('Failed to start server:', error);
@@ -146,8 +156,5 @@ const startServer = async () => {
 if (require.main === module) {
   startServer();
 }
-
-let server: any;
-startServer().then(s => server = s);
 
 export { app, startServer };

@@ -8,7 +8,7 @@ import { logger } from '../utils/logger';
 const router = Router();
 
 // Basic health check
-router.get('/', asyncHandler(async (req: any, res: any) => {
+router.get('/', asyncHandler(async (_req: any, res: any) => {
   const health = {
     status: 'OK',
     timestamp: new Date().toISOString(),
@@ -28,7 +28,7 @@ router.get('/', asyncHandler(async (req: any, res: any) => {
 }));
 
 // Detailed health check
-router.get('/detailed', asyncHandler(async (req: any, res: any) => {
+router.get('/detailed', asyncHandler(async (_req: any, res: any) => {
   const startTime = process.hrtime();
   
   // Check database health
@@ -88,7 +88,7 @@ router.get('/detailed', asyncHandler(async (req: any, res: any) => {
 }));
 
 // Database specific health check
-router.get('/db', asyncHandler(async (req: any, res: any) => {
+router.get('/db', asyncHandler(async (_req: any, res: any) => {
   const dbHealthy = await checkDatabaseHealth();
   
   if (dbHealthy) {
@@ -117,7 +117,7 @@ router.get('/db', asyncHandler(async (req: any, res: any) => {
 }));
 
 // Redis specific health check
-router.get('/redis', asyncHandler(async (req: any, res: any) => {
+router.get('/redis', asyncHandler(async (_req: any, res: any) => {
   const redisClient = getRedisClient();
   
   if (!redisClient) {
@@ -155,7 +155,7 @@ router.get('/redis', asyncHandler(async (req: any, res: any) => {
 }));
 
 // Readiness probe (for Kubernetes)
-router.get('/ready', asyncHandler(async (req: any, res: any) => {
+router.get('/ready', asyncHandler(async (_req: any, res: any) => {
   const dbHealthy = await checkDatabaseHealth();
   
   if (dbHealthy) {
@@ -167,7 +167,7 @@ router.get('/ready', asyncHandler(async (req: any, res: any) => {
 }));
 
 // Liveness probe (for Kubernetes)
-router.get('/live', asyncHandler(async (req: any, res: any) => {
+router.get('/live', asyncHandler(async (_req: any, res: any) => {
   successResponse(res, { alive: true }, 'Service is alive');
 }));
 

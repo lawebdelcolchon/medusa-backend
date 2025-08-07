@@ -1,8 +1,8 @@
 import { defineConfig } from 'drizzle-kit';
-import { config } from './src/config';
+import { config } from './express-src/config';
 
 export default defineConfig({
-  schema: './src/database/schema.ts',
+  schema: './express-src/database/schema.ts',
   out: './drizzle',
   dialect: 'postgresql',
   dbCredentials: {

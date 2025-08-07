@@ -74,7 +74,7 @@ export const errorHandler = (
   error: AppError,
   req: Request,
   res: Response,
-  next: NextFunction
+  _next: NextFunction
 ): void => {
   let { statusCode = 500, message, code = 'INTERNAL_SERVER_ERROR', details } = error;
 
@@ -145,7 +145,7 @@ export const errorHandler = (
 };
 
 // 404 handler
-export const notFoundHandler = (req: Request, res: Response, next: NextFunction): void => {
+export const notFoundHandler = (req: Request, _res: Response, next: NextFunction): void => {
   const error = new NotFoundError(`Route ${req.method} ${req.url} not found`);
   next(error);
 };

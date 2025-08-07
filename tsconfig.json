@@ -1,35 +1,37 @@
 {
   "compilerOptions": {
-    "target": "ES2021",
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "CommonJS",
+    "rootDir": "./express-src",
+    "outDir": "./dist",
+    "strict": true,
+    "moduleResolution": "node",
     "esModuleInterop": true,
-    "module": "Node16",
-    "moduleResolution": "Node16",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "declaration": false,
-    "sourceMap": false,
-    "inlineSourceMap": true,
-    "outDir": "./.medusa/server",
-    "rootDir": "./",
-    "jsx": "react-jsx",
     "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
     "resolveJsonModule": true,
-    "checkJs": false,
-    "strictNullChecks": true
-  },
-  "ts-node": {
-    "swc": true
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true,
+    "types": ["node", "jest"]
   },
   "include": [
-    "**/*",
-    ".medusa/types/*"
+    "express-src/**/*"
   ],
   "exclude": [
     "node_modules",
-    ".medusa/server",
-    ".medusa/admin",
-    ".cache"
+    "dist",
+    "**/*.test.ts",
+    "**/*.spec.ts"
   ]
 }

@@ -225,7 +225,7 @@ export default async function seedDemoData() {
 
     // Seed products
     for (const productData of productsData) {
-      const category = categories.find(cat => cat.name === productData.categoryName);
+      const category = categories.find((cat: any) => cat.name === productData.categoryName);
       if (!category) continue;
 
       // Create product
@@ -283,12 +283,10 @@ export default async function seedDemoData() {
         }).returning();
 
         // Link variant to option values
-        for (const [optionTitle, optionValue] of Object.entries(variantData.options)) {
+        for (const [optionTitle, _optionValue] of Object.entries(variantData.options)) {
           const optionValues = optionValueMap[optionTitle];
-          const optionValueId = optionValues?.find(ovId => {
-            // This would need a lookup, for simplicity we'll skip for now
-            // In a real implementation, you'd query to find the right option value ID
-          });
+          // For demo purposes, we'll just use the first option value
+          // In production, you'd properly match the option value
           
           // For demo purposes, we'll just link to the first option value
           // In production, you'd properly match the option value

@@ -14,17 +14,17 @@ const rateLimiterConfig = {
 };
 
 // Create rate limiter instance
-let rateLimiter: RateLimiterMemory | RateLimiterRedis;
+let globalRateLimiter: RateLimiterMemory | RateLimiterRedis;
 
 const redisClient = getRedisClient();
 if (redisClient && redisClient.isOpen) {
-  rateLimiter = new RateLimiterRedis({
+  globalRateLimiter = new RateLimiterRedis({
     storeClient: redisClient,
     ...rateLimiterConfig,
   });
   logger.info('Using Redis rate limiter');
 } else {
-  rateLimiter = new RateLimiterMemory(rateLimiterConfig);
+  globalRateLimiter = new RateLimiterMemory(rateLimiterConfig);
   logger.info('Using in-memory rate limiter');
 }
 
@@ -33,7 +33,7 @@ export const rateLimiter = async (req: Request, res: Response, next: NextFunctio
   try {
     const key = `${req.ip}_${req.method}_${req.route?.path || req.path}`;
     
-    await rateLimiter.consume(key);
+    await globalRateLimiter.consume(key);
     next();
   } catch (rateLimiterRes: any) {
     const totalPoints = rateLimiterConfig.points;

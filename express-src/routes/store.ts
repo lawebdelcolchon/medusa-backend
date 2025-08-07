@@ -4,12 +4,12 @@ import { successResponse, asyncHandler } from '../middleware/errorHandler';
 const router = Router();
 
 // Store front page
-router.get('/', asyncHandler(async (req: any, res: any) => {
+router.get('/', asyncHandler(async (_req: any, res: any) => {
   successResponse(res, { message: 'Store front - To be implemented' }, 'Store front ready');
 }));
 
 // Products for customers
-router.get('/products', asyncHandler(async (req: any, res: any) => {
+router.get('/products', asyncHandler(async (_req: any, res: any) => {
   // TODO: Implement product listing for customers
   successResponse(res, { message: 'Store products list - To be implemented' }, 'Store products endpoint ready');
 }));
@@ -20,7 +20,7 @@ router.get('/products/:id', asyncHandler(async (req: any, res: any) => {
 }));
 
 // Product categories
-router.get('/categories', asyncHandler(async (req: any, res: any) => {
+router.get('/categories', asyncHandler(async (_req: any, res: any) => {
   // TODO: Implement category listing for customers
   successResponse(res, { message: 'Store categories list - To be implemented' }, 'Store categories endpoint ready');
 }));
@@ -31,12 +31,12 @@ router.get('/categories/:id/products', asyncHandler(async (req: any, res: any) =
 }));
 
 // Shopping cart
-router.get('/cart', asyncHandler(async (req: any, res: any) => {
+router.get('/cart', asyncHandler(async (_req: any, res: any) => {
   // TODO: Implement cart retrieval
   successResponse(res, { message: 'Store cart - To be implemented' }, 'Store cart endpoint ready');
 }));
 
-router.post('/cart/items', asyncHandler(async (req: any, res: any) => {
+router.post('/cart/items', asyncHandler(async (_req: any, res: any) => {
   // TODO: Implement add to cart
   successResponse(res, { message: 'Store add to cart - To be implemented' }, 'Store add to cart endpoint ready');
 }));
@@ -52,13 +52,13 @@ router.delete('/cart/items/:id', asyncHandler(async (req: any, res: any) => {
 }));
 
 // Checkout
-router.post('/checkout', asyncHandler(async (req: any, res: any) => {
+router.post('/checkout', asyncHandler(async (_req: any, res: any) => {
   // TODO: Implement checkout process
   successResponse(res, { message: 'Store checkout - To be implemented' }, 'Store checkout endpoint ready');
 }));
 
 // Orders
-router.get('/orders', asyncHandler(async (req: any, res: any) => {
+router.get('/orders', asyncHandler(async (_req: any, res: any) => {
   // TODO: Implement customer order history
   successResponse(res, { message: 'Store customer orders - To be implemented' }, 'Store customer orders endpoint ready');
 }));
@@ -69,47 +69,47 @@ router.get('/orders/:id', asyncHandler(async (req: any, res: any) => {
 }));
 
 // Customer profile
-router.get('/profile', asyncHandler(async (req: any, res: any) => {
+router.get('/profile', asyncHandler(async (_req: any, res: any) => {
   // TODO: Implement customer profile
   successResponse(res, { message: 'Store customer profile - To be implemented' }, 'Store customer profile endpoint ready');
 }));
 
-router.put('/profile', asyncHandler(async (req: any, res: any) => {
+router.put('/profile', asyncHandler(async (_req: any, res: any) => {
   // TODO: Implement customer profile update
   successResponse(res, { message: 'Store customer profile update - To be implemented' }, 'Store customer profile update endpoint ready');
 }));
 
 // Addresses
-router.get('/addresses', asyncHandler(async (req: any, res: any) => {
+router.get('/addresses', asyncHandler(async (_req: any, res: any) => {
   // TODO: Implement customer addresses
   successResponse(res, { message: 'Store customer addresses - To be implemented' }, 'Store customer addresses endpoint ready');
 }));
 
-router.post('/addresses', asyncHandler(async (req: any, res: any) => {
+router.post('/addresses', asyncHandler(async (_req: any, res: any) => {
   // TODO: Implement address creation
   successResponse(res, { message: 'Store address creation - To be implemented' }, 'Store address creation endpoint ready');
 }));
 
 // Shipping options
-router.get('/shipping-options', asyncHandler(async (req: any, res: any) => {
+router.get('/shipping-options', asyncHandler(async (_req: any, res: any) => {
   // TODO: Implement shipping options
   successResponse(res, { message: 'Store shipping options - To be implemented' }, 'Store shipping options endpoint ready');
 }));
 
 // Regions and countries
-router.get('/regions', asyncHandler(async (req: any, res: any) => {
+router.get('/regions', asyncHandler(async (_req: any, res: any) => {
   // TODO: Implement regions listing
   successResponse(res, { message: 'Store regions - To be implemented' }, 'Store regions endpoint ready');
 }));
 
 // Search
-router.get('/search', asyncHandler(async (req: any, res: any) => {
+router.get('/search', asyncHandler(async (_req: any, res: any) => {
   // TODO: Implement product search
   successResponse(res, { message: 'Store search - To be implemented' }, 'Store search endpoint ready');
 }));
 
 // Custom endpoint (equivalent to the original store custom route)
-router.get('/custom', asyncHandler(async (req: any, res: any) => {
+router.get('/custom', asyncHandler(async (_req: any, res: any) => {
   res.sendStatus(200);
 }));
 
