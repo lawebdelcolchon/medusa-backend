@@ -73,8 +73,10 @@ AUTH_CORS=https://tu-backend.onrender.com,https://tu-frontend.onrender.com
 
 ### Error: Cannot find module 'express/dotenv/joi' etc.
 - ✅ **Solucionado**: Movidos TODOS los @types a dependencies
-- ✅ **Solucionado**: Configuración TypeScript permisiva para build en Render
-- ✅ **Solucionado**: skipLibCheck y strict: false para build robusto
+- ✅ **Solucionado**: Creado tsconfig.production.json ultra permisivo
+- ✅ **Solucionado**: Declaraciones globales de tipos en types/global.d.ts
+- ✅ **Solucionado**: Comando build usa configuración de producción
+- ✅ **Solucionado**: skipLibCheck, strict: false y module declarations
 
 ### Error: Puerto en uso
 - ✅ **Solucionado**: Configurado para usar puerto 10000 en producción
