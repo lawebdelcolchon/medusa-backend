@@ -42,7 +42,7 @@ AUTH_CORS=https://tu-backend.onrender.com,https://tu-frontend.onrender.com
 
 ## Configuración en Render
 
-1. **Build Command**: `npm run build:production`
+1. **Build Command**: `npm run build`
 2. **Start Command**: `npm start`
 3. **Environment**: Node
 4. **Node Version**: 20 o superior
@@ -70,6 +70,11 @@ AUTH_CORS=https://tu-backend.onrender.com,https://tu-frontend.onrender.com
 
 ### Error: Cannot find type definition file for 'node'
 - ✅ **Solucionado**: Removido array `types` completo de tsconfig.json
+
+### Error: Cannot find module 'express/dotenv/joi' etc.
+- ✅ **Solucionado**: Movidos TODOS los @types a dependencies
+- ✅ **Solucionado**: Configuración TypeScript permisiva para build en Render
+- ✅ **Solucionado**: skipLibCheck y strict: false para build robusto
 
 ### Error: Puerto en uso
 - ✅ **Solucionado**: Configurado para usar puerto 10000 en producción
