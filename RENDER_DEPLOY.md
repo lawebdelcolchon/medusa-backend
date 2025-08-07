@@ -57,10 +57,16 @@ AUTH_CORS=https://tu-backend.onrender.com,https://tu-frontend.onrender.com
 ## Solución de Problemas
 
 ### Error: rimraf not found
-- ✅ **Solucionado**: Usamos comandos nativos de shell en lugar de rimraf
+- ✅ **Solucionado**: Usamos comandos nativos Node.js en lugar de rimraf
 
 ### Error: typescript not found
-- ✅ **Solucionado**: TypeScript movido a dependencies
+- ✅ **Solucionado**: TypeScript y @types/node movidos a dependencies
+
+### Error: Cannot find type definition file for 'jest'
+- ✅ **Solucionado**: Removido 'jest' de types en tsconfig.json para producción
+
+### Error: Cannot find name 'beforeAll' (tests)
+- ✅ **Solucionado**: Excluida carpeta tests del build de producción
 
 ### Error: Puerto en uso
 - ✅ **Solucionado**: Configurado para usar puerto 10000 en producción

@@ -23,7 +23,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "exactOptionalPropertyTypes": true,
-    "types": ["node", "jest"]
+    "types": ["node"]
   },
   "include": [
     "express-src/**/*"
@@ -32,6 +32,7 @@
     "node_modules",
     "dist",
     "**/*.test.ts",
-    "**/*.spec.ts"
+    "**/*.spec.ts",
+    "**/tests/**"
   ]
 }
