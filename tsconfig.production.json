@@ -39,10 +39,11 @@
     "emitDecoratorMetadata": true,
     "noErrorTruncation": true,
     "typeRoots": ["./node_modules/@types", "./types"],
-    "types": ["node"]
+    "types": []
   },
   "include": [
-    "express-src/**/*"
+    "express-src/**/*",
+    "types/global.d.ts"
   ],
   "exclude": [
     "node_modules",
