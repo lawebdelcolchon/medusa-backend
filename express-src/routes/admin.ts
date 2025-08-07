@@ -7,7 +7,8 @@ const router = Router();
 // Admin authentication routes
 router.post('/auth/token', loginRateLimiter, asyncHandler(async (req: any, res: any) => {
   // TODO: Implement admin login/token generation
-  const { email, password } = req.body;
+  const { email } = req.body;
+  // Note: password validation would be implemented here in real authentication
   
   // Temporary response for testing - replace with actual authentication
   successResponse(res, {
@@ -20,7 +21,7 @@ router.post('/auth/token', loginRateLimiter, asyncHandler(async (req: any, res: 
   }, 'Admin authentication successful');
 }));
 
-router.post('/auth/session', asyncHandler(async (req: any, res: any) => {
+router.post('/auth/session', asyncHandler(async (_req: any, res: any) => {
   // TODO: Implement admin session creation
   successResponse(res, {
     session: {

@@ -8,8 +8,8 @@ dotenv.config();
 const envSchema = Joi.object({
   // Server
   NODE_ENV: Joi.string().valid('development', 'production', 'test').default('development'),
-  PORT: Joi.number().default(9000),
-  HOST: Joi.string().default('localhost'),
+  PORT: Joi.number().default(process.env.NODE_ENV === 'production' ? 10000 : 9000),
+  HOST: Joi.string().default(process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost'),
 
   // Database
   DATABASE_URL: Joi.string().required(),
