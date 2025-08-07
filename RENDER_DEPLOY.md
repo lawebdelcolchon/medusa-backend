@@ -42,7 +42,7 @@ AUTH_CORS=https://tu-backend.onrender.com,https://tu-frontend.onrender.com
 
 ## Configuración en Render
 
-1. **Build Command**: `npm run build`
+1. **Build Command**: `npm run build:production`
 2. **Start Command**: `npm start`
 3. **Environment**: Node
 4. **Node Version**: 20 o superior
@@ -67,6 +67,9 @@ AUTH_CORS=https://tu-backend.onrender.com,https://tu-frontend.onrender.com
 
 ### Error: Cannot find name 'beforeAll' (tests)
 - ✅ **Solucionado**: Excluida carpeta tests del build de producción
+
+### Error: Cannot find type definition file for 'node'
+- ✅ **Solucionado**: Removido array `types` completo de tsconfig.json
 
 ### Error: Puerto en uso
 - ✅ **Solucionado**: Configurado para usar puerto 10000 en producción

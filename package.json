@@ -5,6 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "build": "tsc",
+    "build:production": "npm run clean && tsc",
     "start": "node dist/server.js",
     "dev": "tsx watch express-src/server.ts",
     "migrate": "tsx express-src/database/migrate.ts",
@@ -21,11 +22,9 @@
     "lint": "eslint express-src --ext .ts,.js",
     "lint:fix": "eslint express-src --ext .ts,.js --fix",
     "format": "prettier --write express-src/**/*.{ts,js,json}",
-    "deploy:render": "npm run build && npm start",
+    "deploy:render": "npm run build:production && npm start",
     "health": "curl -f http://localhost:9000/health || exit 1",
-    "postinstall": "npm run build",
-    "clean": "node -e \"const fs = require('fs'); const path = require('path'); const distPath = path.join(__dirname, 'dist'); if (fs.existsSync(distPath)) { fs.rmSync(distPath, { recursive: true, force: true }); console.log('Clean completed'); } else { console.log('No dist folder to clean'); }\"",
-    "prebuild": "npm run clean"
+    "clean": "node -e \"const fs = require('fs'); const path = require('path'); const distPath = path.join(__dirname, 'dist'); if (fs.existsSync(distPath)) { fs.rmSync(distPath, { recursive: true, force: true }); console.log('Clean completed'); } else { console.log('No dist folder to clean'); }\""
   },
   "keywords": [
     "express",
